@@ -1,7 +1,11 @@
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-    modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@nuxt/content', 'nuxt-icon'],
+    modules: [
+        '@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@nuxt/content', 
+        'nuxt-icon'
+    
+    ],
     tailwindcss: {
         cssPath: '~/assets/css/tailwind.css',
         configPath: 'tailwind.config.js',
@@ -14,7 +18,7 @@ export default defineNuxtConfig({
     },
     content: {
         highlight: {
-            theme: 'github-dark',
+            theme: 'material-darker',
             preload: [
                 'vue',
             ]

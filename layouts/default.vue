@@ -13,9 +13,9 @@
             </p>
         </div>
 
-        <navbar />
+        <Navbar />
 
-        <slot class="mx-auto p-4"/>
+        <slot class="mx-auto p-4" />
 
     </div>
 </template>

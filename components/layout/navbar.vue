@@ -28,6 +28,6 @@ console.log('%c Welcome!', 'background-color:green; color:#ffffff;');
 
 </script>
 
-<style>
+<style lang="postcss">
 
 </style>

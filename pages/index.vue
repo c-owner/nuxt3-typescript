@@ -1,8 +1,8 @@
 <template>
-    <div class="py-3 snap-x">
+    <div class="snap-x">
 
-        <div class="snap-center">
-            <div class="max-w-sm rounded overflow-hidden shadow-lg mb-4 dark:bg-gray-900">
+        <div class="snap-center text-center py-6">
+            <div class="my-0 mx-auto max-w-sm rounded overflow-hidden shadow-lg mb-4 dark:bg-gray-900">
                 <img
                     class="w-full"
                     src="https://tailwindcss.com/img/card-top.jpg"
@@ -10,44 +10,23 @@
                 />
                 <div class="px-6 py-4 pb-2">
                     <div class="font-bold text-xl mb-2 dark:text-white">
-                        The Coldest Sunset
+                        날씨가 너무 추워요
                     </div>
                     <p class="text-gray-700 dark:text-gray-300 text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-                        quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-                        nihil.
+
                     </p>
                 </div>
                 <div class="px-6 py-4">
-                    <span class="badge mr-2">#photography</span>
-                    <span class="badge mr-2">#travel</span>
-                    <span class="badge">#winter</span>
+                    <span class="badge mr-2 cursor-pointer">#photography</span>
+                    <span class="badge mr-2 cursor-pointer">#travel</span>
+                    <span class="badge cursor-pointer">#winter</span>
                 </div>
             </div>
             <NuxtLink to="/about" >
                 <ButtonDarkMode />
             </NuxtLink>
         </div>
-
-        <div class="snap-x flex ...">
-            <div class="snap-start ...">
-                <img src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-            </div>
-            <div class="snap-start ...">
-                <img src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-            </div>
-            <div class="snap-start ...">
-                <img src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-            </div>
-            <div class="snap-start ...">
-                <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-            </div>
-            <div class="snap-start ...">
-                <img src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-            </div>
-            <div class="snap-start ...">
-                <img src="https://images.unsplash.com/photo-1559333086-b0a56225a93c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-            </div>
+        <div id="slide-wrap" class="snap-x flex ">
         </div>
 
     </div>
@@ -55,7 +34,47 @@
 
 <script>
 export default {
-    name: "index"
+    name: "index",
+    setup() {
+        let images = [
+            { src: "~/assets/images/1_temp.jpg", width: 320, height: 160, alt: "1.temp" },
+            { src: "~/assets/images/2_temp.jpg", width: 320, height: 160, alt: "2.temp" },
+            { src: "~/assets/images/3_temp.jpg", width: 320, height: 160, alt: "3.temp" },
+            { src: "~/assets/images/4_temp.jpg", width: 320, height: 160, alt: "4.temp" },
+            { src: "~/assets/images/5_temp.jpg", width: 320, height: 160, alt: "5.temp" },
+            { src: "~/assets/images/6_temp.jpg", width: 320, height: 160, alt: "6.temp" },
+            { src: "~/assets/images/7_temp.jpg", width: 320, height: 160, alt: "7.temp" },
+        ];
+        return {
+            images
+        }
+    },
+    data() {
+        return {
+
+        }
+    },
+    mounted() {
+        let slideWrap = document.getElementById("slide-wrap");
+        if (this.images.length > 0) {
+
+            this.images.forEach((item, index) => {
+                let snapStart = document.createElement("div");
+                snapStart.classList.add("snap-start");
+                snapStart.classList.add("cursor-pointer");
+                slideWrap.appendChild(snapStart);
+
+                let img = document.createElement("img");
+                img.src = item.src;
+                img.width = item.width;
+                img.height = item.height;
+                img.alt = item.alt;
+                snapStart.appendChild(img);
+            });
+
+        }
+
+    },
 }
 </script>
 

@@ -32,7 +32,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
     name: "index",
     setup() {
@@ -55,10 +55,14 @@ export default {
         }
     },
     mounted() {
-        let slideWrap = document.getElementById("slide-wrap");
-        if (this.images.length > 0) {
+        const slideWrap = document.getElementById("slide-wrap");
+        if (!slideWrap) {
+            return;
+        }
 
-            this.images.forEach((item, index) => {
+        if (this.setup().images.length > 0) {
+
+            this.setup().images.forEach((item, index) => {
                 let snapStart = document.createElement("div");
                 snapStart.classList.add("snap-start");
                 snapStart.classList.add("cursor-pointer");

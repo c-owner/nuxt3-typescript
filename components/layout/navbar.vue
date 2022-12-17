@@ -42,7 +42,7 @@ const setColorTheme = (newTheme: Theme) => {
           </nuxt-link>
           <nuxt-link to="/ask-jack/search">
             <span class="text-base font-medium text-gray-500 hover:text-gray-900">
-              Ask Jack
+              Ask Corner
             </span>
           </nuxt-link>
           <nuxt-link to="/dashboard">
@@ -96,7 +96,7 @@ const setColorTheme = (newTheme: Theme) => {
           </svg>
         </button>
       </div>
-      <BackButton/>
+
     </div>
   </div>
 
